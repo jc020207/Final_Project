@@ -22,7 +22,8 @@ var hexmap = "https://raw.githubusercontent.com/jc020207/Final_Project/master/he
 var infrustructure = "https://raw.githubusercontent.com/jc020207/Final_Project/master/Infrastructure.geojson";
 var communityC = "https://raw.githubusercontent.com/jc020207/Final_Project/master/CommunityC.geojson";
 var featureGroup;
-var featureGroup1;
+var infra;
+var center;
 
 /* =====================
 Custom symbols
@@ -85,29 +86,30 @@ var loadact = function(slide) {
       });
     });};
 
+var loadboth = function(x){$(document).ready(function() {
+  $.ajax(infrustructure).done(function(data) {
+    var parsedData = JSON.parse(data);
+    infra = L.geoJson(parsedData, {
+  })
+  });
+});
+$(document).ready(function() {
+  $.ajax(communityC).done(function(data) {
+    var parsedData = JSON.parse(data);
+   center = L.geoJson(parsedData, { pointToLayer: function (feature, latlng) {
+      return L.circleMarker(latlng, geojsonMarkerOptions);
+    },
+  })
+  });
+});}
+
+loadboth();
+
 // load infrastructure and community Center Layer
   var loadinfra = function(slide) {
       //remove previous layer when load
       map.removeLayer(featureGroup);
-      //map.removeLayer(featureGroup1);
       //load slides
-      $(document).ready(function() {
-        $.ajax(infrustructure).done(function(data) {
-          var parsedData = JSON.parse(data);
-          infra = L.geoJson(parsedData, {
-        })
-        });
-      });
-
-      $(document).ready(function() {
-        $.ajax(communityC).done(function(data) {
-          var parsedData = JSON.parse(data);
-         center = L.geoJson(parsedData, { pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, geojsonMarkerOptions);
-          },
-        })
-        });
-      });
 
       featureGroup=L.layerGroup([infra, center]).addTo(map);
     };
