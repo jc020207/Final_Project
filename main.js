@@ -22,6 +22,7 @@ var hexmap = "https://raw.githubusercontent.com/jc020207/Final_Project/master/he
 var infrustructure = "https://raw.githubusercontent.com/jc020207/Final_Project/master/Infrastructure.geojson";
 var communityC = "https://raw.githubusercontent.com/jc020207/Final_Project/master/CommunityC.geojson";
 var featureGroup;
+var featureGroup1;
 
 /* =====================
 Custom symbols
@@ -54,12 +55,13 @@ $(document).ready(function() {
 });
 
 /* =====================
-Load Initial Slide
+Load Slide Function
 ===================== */
-// load hexagon layer
-var loadhex = function(slide) {
+// load activeness layer
+var loadact = function(slide) {
   //remove previous layer when load
   map.removeLayer(featureGroup);
+//  map.removeLayer(featureGroup1);
   //load slides
   $(document).ready(function() {
     $.ajax(hexmap).done(function(data) {
@@ -69,35 +71,54 @@ var loadhex = function(slide) {
     });
   });};
 
+// load suitabiltiy layer
+  var loadsuit = function(slide) {
+    //remove previous layer when load
+    map.removeLayer(featureGroup);
+  //  map.removeLayer(featureGroup1);
+    //load slides
+    $(document).ready(function() {
+      $.ajax(hexmap).done(function(data) {
+        var parsedData = JSON.parse(data);
+        featureGroup = L.geoJson(parsedData, {
+      }).addTo(map);
+      });
+    });};
+
 // load infrastructure and community Center Layer
   var loadinfra = function(slide) {
       //remove previous layer when load
       map.removeLayer(featureGroup);
+      //map.removeLayer(featureGroup1);
       //load slides
       $(document).ready(function() {
         $.ajax(infrustructure).done(function(data) {
           var parsedData = JSON.parse(data);
-          featureGroup = L.geoJson(parsedData, {
-        }).addTo(map);
+          infra = L.geoJson(parsedData, {
+        })
         });
       });
 
       $(document).ready(function() {
         $.ajax(communityC).done(function(data) {
           var parsedData = JSON.parse(data);
-          featureGroup = L.geoJson(parsedData, {
-        }).addTo(map);
+         center = L.geoJson(parsedData, { pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, geojsonMarkerOptions);
+          },
+        })
         });
       });
+
+      featureGroup=L.layerGroup([infra, center]).addTo(map);
     };
 
 // Click Button
 $('#activeness').click(function(e) {
-          loadhex();
+          loadact();
         });
 
 $('#suitability').click(function(e) {
-          loadhex();
+          loadsuit();
         });
 
 $('#infrastructure').click(function(e) {
