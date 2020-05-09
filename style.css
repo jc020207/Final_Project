@@ -8,24 +8,21 @@ body {
 /*colfax, helvetica, arial, sans-serif;*/
 
 h1.title {
+  position:absolute;
   font-size: 30px;
   color:#063D43;
   font-weight: 900;
   text-align:left;
-  left:0;
+  left:20px;
+  top:65px;
   font-family: Gill Sans, sans-serif;
   line-height: 30px;
-}
-
-h2{
-  font-size:15px;
-  font-family: Gill Sans, sans-serif;
 }
 
 .map {
     position: absolute;
     right: 0px;
-    left: 350px;
+    left: 400px;
     height: 100%;
     top: 0;
 }
@@ -33,13 +30,29 @@ h2{
 .sidebar {
     position: absolute;
     left: 0px;
-    width: 310px;
+    width: 500px;
     top: 0;
     bottom: 0;
     overflow-y: auto;
     padding: 20px;
     font-size: 16px;
     background-color: #ECF3F3;
+}
+
+.container{
+  position: absolute;
+  bottom:30px;
+}
+
+#description{
+  position:absolute;
+  font-size: 16px;
+  color:#063D43;
+  text-align:left;
+  left:20px;
+  top:100px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 30px;
 }
 
 .main {
@@ -53,57 +66,85 @@ h2{
   font-family: Gill Sans, sans-serif;
 }
 
-
-.activeness{
+.introduction{
   background-color: #1BA2A2;
-  width:180px;
-  border-radius: 5px;
+  width:100px;
+  height:48px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align:center;
   opacity: 0.6;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   position:absolute;
-  Top:120px;
-  Left:10px;
+  Top:0px;
+  Left:0px;
+}
+.introduction:hover {opacity: 1;}
+
+.activeness{
+  background-color: #1BA2A2;
+  width:100px;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align:center;
+  opacity: 0.6;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  position:absolute;
+  Top:0px;
+  Left: 100px;
 }
 .activeness:hover {opacity: 1;}
 
 .suitability{
   background-color: #1BA2A2;
-  width:180px;
-  border-radius: 5px;
+  width:100px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align:center;
   opacity: 0.6;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   position:absolute;
-  Top:200px;
-  Left:10px;
+  Top:0px;
+  Left:200px;
 }
 .suitability:hover {opacity: 1;}
 
 .infrastructure {
   background-color: #1BA2A2;
-  width:180px;
-  border-radius: 5px;
+  width:100px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align:center;
   opacity: 0.6;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   position:absolute;
-  Top:280px;
-  Left:10px;
+  Top:0px;
+  Left:300px;
 }
 .infrastructure:hover {opacity: 1;}
+
+.slider{
+  position:absolute;
+  top:200px;
+  left:50px;
+  width:300px;
+}
+
+.container{
+  position:absolute;
+  height:175px;
+  width:350px;
+  bottom: : 0px;
+}
