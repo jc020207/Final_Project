@@ -54,7 +54,7 @@ var activecolor =function(d) {
            d > 4.33   ? '#e31a1c' :
            d > 3.74   ? '#fc4e2a' :
            d > 3.14   ? '#fd8d3c' :
-           d > 2.55   ? '#feb24c':
+           d > 2.55   ? '#feb24c' :
            d > 1.96   ? '#fed976' :
            d > 1.37   ? '#ffeda0' :
            d > 0.77   ? '#ffffcc' :
@@ -73,21 +73,21 @@ var activestyle = function(feature) {
 
 //style for suitability map
 var suitcolor =function(d) {
-    return d > 5.57   ? '#084081' :
+    return d > 5.75   ? '#084081' :
            d > 3.09   ? '#0868ac' :
            d > 2.07   ? '#2b8cbe' :
            d > 1.36   ? '#4eb3d3' :
            d > 0.98   ? '#7bccc4' :
-           d > 0.69   ? '#a8ddb5':
+           d > 0.69   ? '#a8ddb5' :
            d > 0.49   ? '#ccebc5' :
            d > 0.32   ? '#e0f3db' :
            d > 0.14   ? '#f7fcf0' :
-                      'F9FBF6';
+                      '#F9FBF6';
 }
 
 var suitstyle = function(feature) {
     return {
-        fillColor: suitcolor(feature.properties.FINAL),
+        fillColor: suitcolor(feature.properties.suit_2),
         weight: 0.5,
         opacity: 1,
         color: 'white',
@@ -95,7 +95,38 @@ var suitstyle = function(feature) {
     };
 }
 
+/* =====================
+build legend
+===================== */
+// for real estate activeness map
 
+var activelegend = L.control({position: 'bottomright'});
+activelegend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'active legend'),
+        grades = [0, 0.77, 1.37,1.96, 2.55, 3.14, 3.74, 4.33, 4.92, 5.52],
+        labels = [];
+        for (var i = 0; i < grades.length; i++) {
+              div.innerHTML +=
+                  '<i style="background:' + activecolor(grades[i] + 0.01) + '"></i> ' +
+                  grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+          }
+
+    return div;
+};
+
+// for real suitability map
+var suitlegend = L.control({position: 'bottomright'});
+suitlegend.onAdd = function (map) {
+    var diva = L.DomUtil.create('diva', 'suit legend'),
+        grade = [0, 0.14, 0.32, 0.49, 0.69, 0.98, 1.36, 2.07, 3.09, 5.75],
+        labels = [];
+        for (var i = 0; i < grade.length; i++) {
+              diva.innerHTML +=
+                  '<i style="background:' + suitcolor(grade[i] + 0.01) + '"></i> ' +
+                  grade[i] + (grade[i + 1] ? '&ndash;' + grade[i + 1] + '<br>' : '+');
+          }
+    return diva;
+};
 /* =====================
 Load Initial Slide
 ===================== */
@@ -227,6 +258,7 @@ Load Slide Function
 // load activeness layer
 var loadact = function(slide) {
   //remove previous layer when load
+  map.removeControl(suitlegend);
   map.removeLayer(featureGroup);
   //load slides
   $(document).ready(function() {
@@ -237,12 +269,14 @@ var loadact = function(slide) {
     }).addTo(map);
     featureGroup.eachLayer(getactivechartdata);
     });
+    activelegend.addTo(map);
   });};
 
 
 // load suitabiltiy layer
   var loadsuit = function(slide) {
     //remove previous layer when load
+    map.removeControl(activelegend);
     map.removeLayer(featureGroup);
     //load slides
     $(document).ready(function() {
@@ -253,6 +287,7 @@ var loadact = function(slide) {
       }).addTo(map);
       featureGroup.eachLayer(getsuitchartdata);
       });
+      suitlegend.addTo(map);
     });};
 
 //load both infrasturcture and community Center
@@ -279,6 +314,8 @@ loadboth();
 // map both infrastructure and community center
   var loadinfra = function(slide) {
       //remove previous layer when load
+      map.removeControl(suitlegend);
+      map.removeControl(activelegend);
       map.removeLayer(featureGroup);
       //load slides
       featureGroup=L.layerGroup([infra, center]).addTo(map);
@@ -343,11 +380,11 @@ var activeslidefilter = function(feature){
         var suitslider = document.getElementById('suitslider');
 
         noUiSlider.create(suitslider, {
-            start: [0, 6.1],
+            start: [0, 10.1],
             connect: true,
             range: {
                 'min': 0,
-                'max': 10},
+                'max': 10.1},
             tooltips:[true,true]
         });
     // define global variables
@@ -360,6 +397,7 @@ var activeslidefilter = function(feature){
         suitindex = suitslider.noUiSlider.get();
         suitslidemin = suitindex[0];
         suitslidemax = suitindex[1];
+        console.log(suitslidemax);
         loadsuitslide();
         })
 
@@ -378,7 +416,7 @@ var activeslidefilter = function(feature){
               var parsedData = JSON.parse(data);
               featureGroup = L.geoJson(parsedData, {
               style: suitstyle,
-              filter: suitslidefilter
+              filter: suitslidefilter,
             }).addTo(map);
             featureGroup.eachLayer(getsuitchartdata);
             });
