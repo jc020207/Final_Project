@@ -1,5 +1,5 @@
 /* =====================
-This is the final project written by Junya Chen (github user name: jc02027) and Yuyang Yin (github username: yuzuruhanyu666).
+This is the final project is a team project written by Junya Chen (github user name: jc02027) and Yuyang Yin (github username: yuzuruhanyu666).
 ===================== */
 
 /* =====================
