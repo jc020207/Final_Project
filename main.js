@@ -1360,7 +1360,7 @@ var myFilterGroceryLibrary = function(feature) {
 // Style of infrastructure
 var infraStyle = function(feature) {
       switch (feature.properties.facility_t){
-      case 'grocery': return {color: "#a1dab4",weight:1.2,fillColor:"#a1dab4",fillOpacity:0.8};
+      case 'grocery': return {color: "#5e9679",weight:1.2,fillColor:"#a1dab4",fillOpacity:0.8};
       case 'health': return {color: "#41b6c4",weight:1.2,fillColor:"#41b6c4",fillOpacity:0.8};
       case 'library': return {color: "#2c7fb8",weight:1.2,fillColor:"#2c7fb8",fillOpacity:0.8};
       }
