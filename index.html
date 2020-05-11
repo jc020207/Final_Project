@@ -14,22 +14,37 @@
   <!-- sidebar initial -->
   <div id="sidebar_original" class="sidebar" >
     <h1 id="title" class="title">Introduction</h1>
-    <p id="description">hello </p>
+    <p id="description" class='text'>
+This dashboard is dedicated to data visualization for the ‘Real Estate and Infrastructure Development Site Selection Techniques” project. San Francisco was selected as an example to develop the methodology. The project focuses on developing methodologies that could be used to evaluate real estate and public infrastructure development site selection. The project proposes to use geospatial analysis (GIS & Python) to capture cities’ spatial characteristics, and thus assist developers and city governors for their site selection decision-making process. For the real-estate development section, a map that divides San Francisco into equal hexagons with development potential and suitability index was developed. As for infrastructure site selection, locations that can optimize the efficiency of city infrastructure service provision were identified.
+</p>
+ <p id="instruction" class='text'>** click tabs above to view maps</p>
+ <p id="mapexplain" class='text'>** The inital map on the right shows our unit of analysis and community centers we identified</p>
     <button id="introduction" class = "introduction">Introduction</button>
     <button id="activeness" class = "activeness">Real Estate Activeness</button>
     <button id="suitability" class = "suitability">Development Suitability</button>
-    <button id="infrastructure" class = "infrastructure">Infrustructure Locator</button>
+    <button id="infrastructure" class = "infrastructure">Infrastructure Locator</button>
   </div>
 
   <!-- sidebar 1 -->
   <div id="sidebar_1" class="sidebar" style="display: none;">
-    <h1 id="title" class="title">Realestate Activeness</h1>
-    <p id="description">XXXXXX </p>
+    <h1 id="title" class="title">Real Estate Activeness</h1>
+    <p id="real_estate_description" class='section_description'>The real estate activeness index is used to identify a place’s development. Demographics, commercial facilities and infrastructures, transportation accessibility, and housing demand are factors that taken into consideration when determining the development potential (use the dropdown to see individual maps). </p>
+    <p id='activeness_slidernote' class='slidernote'>Real Estate Activeness Index Filter</p>
+    <p id='activeness_chart' class='chartnote'>Real Estate Activeness Performance Chart (click a hexagon to view)</p>
     <button id="introduction_1" class = "introduction">Introduction</button>
     <button id="activeness_1" class = "activeness">Real Estate Activeness</button>
     <button id="suitability_1" class = "suitability">Development Suitability</button>
-    <button id="infrastructure_1" class = "infrastructure">Infrustructure Locator</button>
+    <button id="infrastructure_1" class = "infrastructure">Infrastructure Locator</button>
     <div id="activeslider" class="slider"></div>
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Activenss Category ▼</button>
+          <div id="myDropdown" class="dropdown-content">
+          <a href="#" id="demographics">Demographics</a>
+          <a href="#" id="commercial">Commercial</a>
+          <a href="#" id="transportation">Transportation</a>
+          <a href="#" id="demand">Demand</a>
+          </div>
+    </div>
     <div id="container" class="container">
       <canvas id ="myactiveChart"></canvas>
     </div>
@@ -38,13 +53,25 @@
 
   <!-- sidebar 2 -->
   <div id="sidebar_2" class="sidebar" style="display: none;">
-    <h1 id="title" class="title">Suitability</h1>
-    <p id="description">XXXXXX </p>
+    <h1 id="title" class="title">Development Suitability</h1>
+    <p id="suit_description" class='section_description'>The development suitability index reflects the geographical characteristics and urban environment of the location and measures whether the site is suitable for real-estate development. Slope, land use, floodplain, and contamination were evaluated to calculate the final index (use the dropdown to see individual maps).  </p>
+    <p id='suit_slidernote' class='slidernote'>Development Suitability Index Filter</p>
+    <p id='suit_chart' class='chartnote'>Suitability Performance Chart (click a hexagon to view)</p>
+    <p class='extrachartnote'>** In contrary to the suitability map, a higher score on the polar area chart and individual maps mean the site is NOT suitable for development. </p>
     <button id="introduction_2" class = "introduction">Introduction</button>
     <button id="activeness_2" class = "activeness">Real Estate Activeness</button>
     <button id="suitability_2" class = "suitability">Development Suitability</button>
-    <button id="infrastructure_2" class = "infrastructure">Infrustructure Locator</button>
+    <button id="infrastructure_2" class = "infrastructure">Infrastructure Locator</button>
     <div id="suitslider" class="slider"></div>
+    <div class="suitdropdown">
+        <button onclick="myFunctionsuit()" class="suitdropbtn">Suitability Category ▼</button>
+          <div id="myDropdownsuit" class="suitdropdown-content">
+          <a href="#" id="slope">Slope</a>
+          <a href="#" id="contamination">Contamination</a>
+          <a href="#" id="landuse">Land Use</a>
+          <a href="#" id="flood">Flood</a>
+          </div>
+      </div>
     <div id="container" class="container">
       <canvas id ="mysuitChart"></canvas>
     </div>
@@ -53,12 +80,50 @@
 
   <!-- sidebar 3 -->
   <div id="sidebar_3" class="sidebar" style="display: none;">
-    <h1 id="title" class="title">Intrastructure</h1>
-    <p id="description">XXXXXX </p>
+    <h1 id="title" class="title">Infrastructure Locator</h1>
+    <p id="infra_description" class='section_description'>This section displays the result of the techniques we developed to identify the area that needs infrastructure development and sites that can efficiently serve multiple communities. We used kernel density analysis to identify community centers. And based on the community service area for each infrastructure (public library, grocery stores, and public health), optimal infrastructure development locations were identified using Python. </p>
+    <p id='community_select_title' class='communtiy_select_title'>Select Communty Centers</p>
+    <p id='infrastructure_select_title' class='infrastructure_select_title'>Select Infrastructure Type</p>
     <button id="introduction_3" class = "introduction">Introduction</button>
     <button id="activeness_3" class = "activeness">Real Estate Activeness</button>
     <button id="suitability_3" class = "suitability">Development Suitability</button>
-    <button id="infrastructure_3" class = "infrastructure">Infrustructure Locator</button>
+    <button id="infrastructure_3" class = "infrastructure">Infrastructure Locator</button>
+    <p id="develop_description"> Community center development</p>
+    <div class="containerCheck">
+          <div class="group">
+            <input type="checkbox" id="grocery" />
+            <label for="grocery">Grocery</label>
+          </div>
+
+          <div class="group">
+            <input type="checkbox" id="health" />
+            <label for="health">Health</label>
+          </div>
+
+          <div class="group">
+            <input type="checkbox" id="library" />
+            <label for="library">Library</label>
+          </div>
+        </div>
+    <div class="dropdown2">
+        <button onclick="myFunction2()" class="dropbtn2">Community center ▼</button>
+        <div id="myDropdown2" class="dropdown-content2 active">
+          <a href="#Id0" id="Id0">Community center 0</a>
+          <a href="#Id1" id="Id1">Community center 1</a>
+          <a href="#Id2" id="Id2">Community center 2</a>
+          <a href="#Id3" id="Id3">Community center 3</a>
+          <a href="#Id4" id="Id4">Community center 4</a>
+          <a href="#Id5" id="Id5">Community center 5</a>
+          <a href="#Id6" id="Id6">Community center 6</a>
+          <a href="#Id7" id="Id7">Community center 7</a>
+          <a href="#Id8" id="Id8">Community center 8</a>
+          <a href="#Id9" id="Id9">Community center 9</a>
+          <a href="#Id10" id="Id10">Community center 10</a>
+          <a href="#Id11" id="Id11">Community center 11</a>
+          <a href="#Id12" id="Id12">Community center 12</a>
+         </div>
+      </div>
+    <button id="doFilter" class="doFilter">Reset the map</button>
   </div>
 
   <div id="map" class="map">

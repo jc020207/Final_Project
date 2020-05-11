@@ -1,21 +1,23 @@
+/************************ general ***************************/
+
 body {
     padding: 0;
     overflow: hidden;
     font-family: Gill Sans, sans-serif;
-    color:#063D43;
+    color:#1c3334;
     line-height: 25px;
 }
 /*colfax, helvetica, arial, sans-serif;*/
 
 h1.title {
   position:absolute;
-  font-size: 30px;
-  color:#063D43;
+  font-size: 24px;
+  color:#1c3334;
   font-weight: 900;
   text-align:left;
   left:20px;
-  top:65px;
-  font-family: Gill Sans, sans-serif;
+  top:50px;
+  font-family: arial;
   line-height: 30px;
 }
 
@@ -33,31 +35,63 @@ h1.title {
     left: 50px;
     width: 500px;
     top: 50px;
-    bottom: 0;
     overflow-y: auto;
     padding: 20px;
     font-size: 16px;
     background-color: white;
     opacity:0.8;
-    bottom: 70px;
+    bottom: 50px;
     z-index: 10;
     border-radius: 10px;
 }
 
-.container{
-  position: absolute;
-  bottom:30px;
-}
 
 #description{
   position:absolute;
-  font-size: 16px;
-  color:#063D43;
+  padding-right: 30px;
+  font-size: 14px;
+  color:#1c3334;
+  text-align:left;
+  left:20px;
+  top:85px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 20px;
+}
+
+.section_description{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14px;
+  color:#1c3334;
   text-align:left;
   left:20px;
   top:100px;
   font-family: Gill Sans, sans-serif;
-  line-height: 30px;
+  line-height: 18px;
+}
+
+#instruction{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14px;
+  color:#1c3334;
+  text-align:left;
+  left:20px;
+  bottom:80px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 20px;
+}
+
+#mapexplain{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14px;
+  color:#1c3334;
+  text-align:left;
+  left:20px;
+  bottom:40px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
 }
 
 .main {
@@ -70,19 +104,19 @@ h1.title {
   top: 75%;
   font-family: Gill Sans, sans-serif;
 }
-
+/************************ top buttons ***************************/
 .introduction{
-  background-color: #1BA2A2;
-  width:100px;
-  height:48px;
+  background-color: #2E151b;
+  width:135px;
+  height:52px;
   border: none;
   color: white;
   padding: 10px 10px;
   text-align:center;
-  opacity: 0.6;
+  opacity: 0.8;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   position:absolute;
   Top:0px;
   Left:0px;
@@ -90,70 +124,120 @@ h1.title {
 .introduction:hover {opacity: 1;}
 
 .activeness{
-  background-color: #1BA2A2;
-  width:100px;
+  background-color: #376E6F;
+  width:135px;
   border: none;
   color: white;
   padding: 10px 10px;
   text-align:center;
-  opacity: 0.6;
+  opacity: 0.8;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   position:absolute;
   Top:0px;
-  Left: 100px;
+  Left: 135px;
 }
 .activeness:hover {opacity: 1;}
 
 .suitability{
-  background-color: #1BA2A2;
-  width:100px;
+  background-color:#376E6F;
+  width:135px;
   border: none;
   color: white;
   padding: 10px 10px;
   text-align:center;
-  opacity: 0.6;
+  opacity: 0.8;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   position:absolute;
   Top:0px;
-  Left:200px;
+  Left:270px;
 }
 .suitability:hover {opacity: 1;}
 
 .infrastructure {
-  background-color: #1BA2A2;
-  width:100px;
+  background-color: #376E6F;
+  width:135px;
   border: none;
   color: white;
   padding: 10px 10px;
   text-align:center;
-  opacity: 0.6;
+  opacity: 0.8;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   position:absolute;
   Top:0px;
-  Left:300px;
+  Left:405px;
 }
 .infrastructure:hover {opacity: 1;}
+/************************ silder ***************************/
 
 .slider{
   position:absolute;
-  top:200px;
-  left:50px;
-  width:300px;
+  top:285px;
+  left:40px;
+  width:450px;
 }
 
+.slidernote{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14.5px;
+  color:#376E6F;
+  text-align:left;
+  left:20px;
+  top:200px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+.noUi-handle{
+  border-radius: 50px;
+}
+/************************ chart ***************************/
 .container{
   position:absolute;
-  height:175px;
-  width:350px;
-  bottom: : 0px;
+  height:120px;
+  width:300px;
+  bottom:10px;
 }
 
+canvas{
+
+  width:300px !important;
+  height:120px !important;
+
+}
+.chartnote{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14.5px;
+  color:#376E6F;
+  text-align:left;
+  left:20px;
+  bottom:135px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+.extrachartnote{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 10px;
+  color:#376E6F;
+  text-align:left;
+  left:20px;
+  bottom:105px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
+
+}
+/************************ legend ***************************/
 .legend {
     line-height: 18px;
     color: white;
@@ -164,4 +248,278 @@ h1.title {
     float: left;
     margin-right: 8px;
     opacity: 0.7;
+}
+
+/************************ Activeness ***************************/
+/*Dropdown CSS*/
+/* Dropdown activeness Button */
+.dropbtn {
+  background-color: #1BA2A2;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #1BA2A2;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  top:60px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+/**************************************** Suitability ****************************/
+/*Dropdown CSS*/
+/* Dropdown suitability Button */
+.suitdropbtn {
+  background-color: #1BA2A2;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.suitdropbtn:hover, .suitdropbtn:focus {
+  background-color: #1BA2A2;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.suitdropdown {
+  position: absolute;
+  display: inline-block;
+  right: 10px;
+  top:60px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.suitdropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.suitdropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.suitdropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+/************************************* Infrastructure ***********************************/
+#develop_description{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 16px;
+  color:#1c3334;
+  text-align:left;
+  left:20px;
+  bottom:70px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.containerCheck {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+  Top:210px;
+  Right:10px;
+  /*justify-content: center;*/
+}
+.containerCheck .group {
+  padding: 5px 48px;
+  margin: 0px;
+}
+input[type="checkbox"] {
+  display: none;
+}
+label {
+  position: relative;
+}
+label::before {
+  content: "";
+  background: url("img/check-circle.svg");
+  /*background-position: center;*/
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: -44px;
+  top: -8px;
+
+  transform: scale(0) rotateZ(180deg);
+  transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+}
+
+input[type="checkbox"]:checked + label::before {
+  transform: scale(1) rotateZ(0deg);
+}
+
+label::after {
+  content: "";
+  border: 2px solid #1BA2A2;;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: -42px;
+  top: -6px;
+  border-radius: 50%;
+}
+
+.doFilter {
+  background-color: #2E151b;
+  width:120px;
+  height:52px;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align:center;
+  opacity: 0.8;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  position:absolute;
+  bottom: 20px;
+  right:10px;
+  }
+  .doFilter:hover {opacity: 1;}
+
+/*Dropdown 2*/
+.dropbtn2 {
+  background-color: #1BA2A2;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  opacity: 0.9;
+  border: none;
+  cursor: pointer;
+
+}
+
+.dropbtn2:hover, .dropbtn2:focus {
+  background-color: #1BA2A2;
+}
+
+#myInput2 {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput2:focus {outline: 3px solid #ddd;}
+
+.dropdown2 {
+  position: absolute;
+  display: inline-block;
+  left: 10px;
+  top:280px;
+}
+
+.dropdown-content2 {
+  display: none;
+  position: absolute;
+  background-color: #fff6fa;
+  max-height: 0px;
+  overflow: auto;
+  opacity: 0;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+.dropdown-content2.active{
+  max-height: 150px;
+  max-width: 180px;
+  opacity:1;
+  overflow-y: scroll;
+}
+
+.dropdown-content2 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown2 a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.communtiy_select_title{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14.5px;
+  color:#376E6F;
+  text-align:left;
+  left:20px;
+  Top:220px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+.infrastructure_select_title{
+  position:absolute;
+  padding-right: 30px;
+  font-size: 14.5px;
+  color:#376E6F;
+  text-align:left;
+  right:20px;
+  Top:220px;
+  font-family: Gill Sans, sans-serif;
+  line-height: 17px;
+  font-weight: 700;
 }
