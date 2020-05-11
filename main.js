@@ -50,7 +50,7 @@ Custom symbols and styles
 
 var geojsonMarkerOptions = {
     radius: 8,
-    fillColor: "#da7b93",
+    fillColor: "#DA7B93",
     color: "#fffff",
     weight: 1,
     opacity: 1,
@@ -60,7 +60,7 @@ var geojsonMarkerOptions = {
 var introstyle = function(feature) {
     return {
         fillColor: '#ffffff',
-        fillOpacity:0.2,
+        fillOpacity:0.1,
         weight: 0.5,
         opacity:0.8,
         color: 'white',
@@ -70,10 +70,10 @@ var introstyle = function(feature) {
 var infrastyle = function(feature) {
     return {
         fillColor: '#376e6f',
-        fillOpacity:0.7,
-        weight: 0.5,
+        fillOpacity:0.6,
+        weight: 2,
         opacity: 1,
-        color: 'white',
+        color: '#376e6f',
     };
 }
 
