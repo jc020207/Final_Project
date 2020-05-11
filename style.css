@@ -203,9 +203,10 @@ h1.title {
   border-radius: 50px;
 }
 
-.noUi-connects{
-  background-color:  #1BA2A2;
+.noUi-connect {
+    background: #1BA2A2;
 }
+
 /************************ chart ***************************/
 .container{
   position:absolute;
@@ -227,7 +228,7 @@ canvas{
   color:#376E6F;
   text-align:left;
   left:20px;
-  bottom:135px;
+  bottom:145px;
   font-family: arial;
   line-height: 17px;
   font-weight: 700;
@@ -240,7 +241,7 @@ canvas{
   color:#376E6F;
   text-align:left;
   left:20px;
-  bottom:105px;
+  bottom:115px;
   font-family: arial;
   line-height: 17px;
 
